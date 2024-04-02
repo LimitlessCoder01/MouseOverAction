@@ -1,0 +1,63 @@
+package org.ink;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class MouseOverAction {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		WebDriver driver = new ChromeDriver();
+		
+		driver.get("https://demo.guru99.com/test/drag_drop.html");
+		
+		WebElement bank = driver.findElement(By.xpath("(//a[@class='button button-orange'])[5]"));
+		
+		WebElement bankPlace = driver.findElement(By.xpath("(//li[@class='placeholder'])[1]"));
+		
+		Actions action =new Actions (driver);
+		
+		action.dragAndDrop(bank, bankPlace).perform();
+		
+		Thread.sleep(3000);
+		
+		WebElement amountOne = driver.findElement(By.xpath("(//a[@class='button button-orange'])[4]"));
+		
+		WebElement amountOnePlace = driver.findElement(By.xpath("(//li[@class='placeholder'])[2]"));
+		
+		action.dragAndDrop(amountOne, amountOnePlace).perform();
+		
+		Thread.sleep(3000);
+		
+		WebElement sales = driver.findElement(By.xpath("(//a[@class='button button-orange'])[6]"));
+		
+		WebElement salesPlace = driver.findElement(By.xpath("(//li[@class='placeholder'])[3]"));
+		
+		action.dragAndDrop(sales, salesPlace).perform();
+		
+		Thread.sleep(3000);
+		
+		WebElement amtTwo = driver.findElement(By.xpath("(//a[@class='button button-orange'])[4]"));
+		
+		WebElement amtTwoPlace = driver.findElement(By.xpath("(//li[@class='placeholder'])[4]"));
+		
+		action.dragAndDrop(amtTwo, amtTwoPlace).perform();
+		
+		Thread.sleep(3000);
+		
+		WebElement text = driver.findElement(By.xpath("(//a[@class='button button-green'])[1]"));
+		
+		String attribute = text.getAttribute("value");
+		
+		System.out.println(attribute);
+		
+		}
+
+	private static void sleep(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+}
